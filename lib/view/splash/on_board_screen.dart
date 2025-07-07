@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -174,7 +177,21 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
       _currentPage = index;
     });
   }
+ static const platform = MethodChannel('com.example.alarm');
 
+  Future<void> scheduleAlarm() async {
+    try {
+   
+      await platform.invokeMethod('scheduleAlarm', {
+        'hour': 12,
+        'minute': 32,
+      });
+      print('Alarm scheduled for 12:30pm');
+    } on PlatformException catch (e) {
+      print('Failed to schedule alarm: ${e.message}');
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -199,7 +216,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        scheduleNotification();
+                        scheduleAlarm();
                         // if (_currentPage != 2) {
                         //   _controller.nextPage(
                         //       duration: Duration(milliseconds: 800),

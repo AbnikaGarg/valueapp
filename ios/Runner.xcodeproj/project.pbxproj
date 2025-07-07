@@ -16,8 +16,8 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		C4C312580034BAE5FDA1C993 /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2C9E733B3248C8CD58E711 /* Pods_RunnerTests.framework */; };
+		E05F908D2CF1F37700D4A06D /* ahmadalnafeesfulladhan.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E05F908C2CF1F37700D4A06D /* ahmadalnafeesfulladhan.aiff */; };
 		E070505E2CEF9B3300F8FB40 /* ganesh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E070505D2CEF9B3300F8FB40 /* ganesh.mp3 */; };
-		E0FBA6FF2CEF977C009893DA /* ahmadalnafeesfulladhan.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E0FBA6FE2CEF977C009893DA /* ahmadalnafeesfulladhan.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +66,8 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8FB95C1B27B2F3137B72AAC /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05F908C2CF1F37700D4A06D /* ahmadalnafeesfulladhan.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = ahmadalnafeesfulladhan.aiff; path = ../../../../Downloads/ahmadalnafeesfulladhan.aiff; sourceTree = "<group>"; };
 		E070505D2CEF9B3300F8FB40 /* ganesh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ganesh.mp3; path = ../../../livebhagwan/assets/images/ganesh.mp3; sourceTree = "<group>"; };
-		E0FBA6FE2CEF977C009893DA /* ahmadalnafeesfulladhan.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = ahmadalnafeesfulladhan.aiff; path = ../../assets/svg/ahmadalnafeesfulladhan.aiff; sourceTree = "<group>"; };
 		EA413D2B3C518796A38180B8 /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				E070505D2CEF9B3300F8FB40 /* ganesh.mp3 */,
-				E0FBA6FE2CEF977C009893DA /* ahmadalnafeesfulladhan.aiff */,
+				E05F908C2CF1F37700D4A06D /* ahmadalnafeesfulladhan.aiff */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				E070505E2CEF9B3300F8FB40 /* ganesh.mp3 in Resources */,
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
-				E0FBA6FF2CEF977C009893DA /* ahmadalnafeesfulladhan.aiff in Resources */,
+				E05F908D2CF1F37700D4A06D /* ahmadalnafeesfulladhan.aiff in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 			);

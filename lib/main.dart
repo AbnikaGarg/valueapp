@@ -21,27 +21,26 @@ import 'view/splash/splash.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 // Mandatory if the App is obfuscated or using Flutter 3.1+
+import 'package:just_audio/just_audio.dart';
 
-class MyAudioHandler extends BaseAudioHandler
-    with
-        QueueHandler, // mix in default queue callback implementations
-        SeekHandler {
-  // mix in default seek callback implementations
+class AudioPlayerHandler extends BaseAudioHandler {
+  final _player = AudioPlayer();
 
-  final _player = AudioPlayer(); // e.g. just_audio
+  AudioPlayerHandler() {
+    _player.setUrl("https://exampledomain.com/song.mp3");
+  }
 
-  // The most common callbacks:
+  @override
   Future<void> play() => _player.play();
-  Future<void> pause() => _player.pause();
-  Future<void> stop() => _player.stop();
-  Future<void> seek(Duration position) => _player.seek(position);
-  Future<void> skipToQueueItem(int i) => _player.seek(Duration.zero, index: i);
-}
 
+  @override
+  Future<void> pause() => _player.pause();
+}
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 
+late AudioHandler _audioHandler; // singleton.
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,6 +61,8 @@ Future<void> main() async {
   await flutterLocalNotificationsPlugin.initialize(
     initializationSettings,
     onDidReceiveNotificationResponse: onSelectNotification,
+
+     onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
   );
   flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
@@ -71,8 +72,16 @@ Future<void> main() async {
         badge: true,
         sound: true,
       );
+       _audioHandler = await AudioService.init(
+    builder: () => AudioPlayerHandler(),
+    config: AudioServiceConfig(
+      androidNotificationChannelId: 'com.mycompany.myapp.channel.audio',
+      androidNotificationChannelName: 'Audio playback',
+      androidNotificationOngoing: true,
+    ),
+  );
   // startAudioService();
-  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+ //Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
 
 //  Workmanager().registerOneOffTask(
 //         "simpleTask",
@@ -84,6 +93,12 @@ Future<void> main() async {
 final player = AudioPlayer();
 Future<void> onSelectNotification(NotificationResponse response) async {
   print('Notification clicked with payload: ${response.payload}');
+}
+@pragma('vm:entry-point')
+void notificationTapBackground(NotificationResponse notificationResponse) {
+  // handle action
+
+   print('background clicked with payload: ${notificationResponse.payload}');
 }
 @pragma('vm:entry-point')
 void callbackDispatcher() { print(
